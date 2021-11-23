@@ -1,0 +1,14 @@
+language: php
+
+php:
+    - 7.4
+
+before_install:
+    - sudo apt-get update
+    - curl --version
+
+install:
+    - make install
+
+script:
+    - make test

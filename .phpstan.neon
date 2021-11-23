@@ -1,0 +1,10 @@
+parameters:
+    level: 5
+    paths:
+        - config
+        - app
+        #- test
+    bootstrapFiles:
+        - .phpstan.constants.php
+    excludePaths:
+        - app/Http/Middleware

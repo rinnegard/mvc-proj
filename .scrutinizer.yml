@@ -1,0 +1,42 @@
+build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+                    - js-scrutinizer-run
+        coverage:
+            project_setup:
+                override:
+                    - true
+            tests:
+                override:
+                  - command: make phpunit
+                    coverage:
+                      file: build/coverage.clover   # <- Set this to where we find the coverage data.
+                                                  #    The path is relative to the current directory.
+                      format: clover
+filter:
+    paths:
+        - '*'
+    excluded_paths:
+        - 'views/*'
+        - 'config/*'
+        - 'database/*'
+        - '*.min.js'
+        - 'build/*'
+        - 'vendor/*'
+checks:
+    php: true
+    javascript: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
