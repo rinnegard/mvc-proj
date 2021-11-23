@@ -15,37 +15,40 @@ $score = Session::get('yatzy')->getScore();
 
 ?><h1><?= $header ?></h1>
 
-<p><?= $message ?></p>
+<div class="game">
+    <p><?= $message ?></p>
 
-<?php if (!isset($gameover)) : ?>
-    <p>Select the dice you want to save.</p>
-    <p>
-        <form  action="" method="post">
-            @csrf
-            <?php foreach ($die1 as $key => $value) : ?>
-                <input type="checkbox" name="<?= $key ?>" value="<?= $value->getFace() ?>"><?= $value->getFace(); ?></input>
-            <?php endforeach; ?>
-            <input type="submit" name="save" value="Save">
-        </form>
-    </p>
+    <?php if (!isset($gameover)) : ?>
+        <p>Select the dice you want to save.</p>
+        <p>
+            <form  action="" method="post">
+                @csrf
+                <?php foreach ($die1 as $key => $value) : ?>
+                    <input type="checkbox" name="<?= $key ?>" value="<?= $value->getFace() ?>"><?= $value->getFace(); ?></input>
+                <?php endforeach; ?>
+                <input type="submit" name="save" value="Save">
+            </form>
+        </p>
 
-    <p>You are currently looking for dice that show <?= $turn + 1 ?></p>
-    <p>You have <?= 3 - $throws ?> throws remaining</p>
+        <p>You are currently looking for dice that show <?= $turn + 1 ?></p>
+        <p>You have <?= 3 - $throws ?> throws remaining</p>
 
-    <?php if (!isset($roundEnd)) : ?>
-    <form  action="" method="post">
-        @csrf
-        <input type="submit" name="roll" value="Roll!">
-    </form>
+        <?php if (!isset($roundEnd)) : ?>
+            <form  action="" method="post">
+                @csrf
+                <input type="submit" name="roll" value="Roll!">
+            </form>
+        <?php endif; ?>
+        <?php if (isset($roundEnd)) : ?>
+            <form  action="" method="post">
+                @csrf
+                <input type="submit" name="next" value="next">
+            </form>
+            <p><?= $roundEnd ?></p>
+        <?php endif; ?>
     <?php endif; ?>
-    <?php if (isset($roundEnd)) : ?>
-        <form  action="" method="post">
-            @csrf
-            <input type="submit" name="next" value="next">
-        </form>
-        <p><?= $roundEnd ?></p>
-    <?php endif; ?>
-<?php endif; ?>
+</div>
+
 <table>
     <caption>Scoreboard</caption>
     <tr>
