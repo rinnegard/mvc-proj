@@ -53,21 +53,70 @@ class Yatzy
 
         if (isset($_POST["next"]) || $inp === "next") {
             $this->throws = 0;
-            $this->calcScore();
-            $this->playerDiceHand = new DiceHand(5);
-            $this->savedDice = [];
             $this->turn++;
+            if ($this->turn <= 6) {
+                $this->calcScore();
+            }
             if ($this->turn == 6) {
-                $data["gameover"] = self::LOSEMESSAGE;
+                // $data["gameover"] = self::LOSEMESSAGE;
                 array_push($this->score, array_sum($this->score));
                 if ($this->score[6] >= 63) {
                     array_push($this->score, 50);
+                } else {
+                    array_push($this->score, 0);
                 }
                 $this->totalScore = $this->score[6];
             }
+            switch ($this->turn) {
+                case 7:
+                    $this->calcOnePair();
+                    break;
+                case 8:
+                    $this->calcTwoPair();
+                    break;
+
+
+                default:
+                    break;
+            }
+            $this->playerDiceHand = new DiceHand(5);
+            $this->savedDice = [];
         }
 
         return $data;
+    }
+
+
+    public function calcOnePair(): void
+    {
+        $diceSum = 0;
+        $len = count($this->savedDice);
+        for ($i=0; $i < $len-1; $i++) {
+            for ($j=$i + 1; $j < $len; $j++) {
+                if($this->savedDice[$i] == $this->savedDice[$j]) {
+                    if ($diceSum > 0 && $diceSum < $this->savedDice[$i] * 2) {
+                        $diceSum = intval($this->savedDice[$i]) * 2;
+                    } else {
+                        $diceSum = intval($this->savedDice[$i]) * 2;
+                    }
+                }
+            }
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcTwoPair(): void
+    {
+        $diceSum = 0;
+        $len = count($this->savedDice);
+        for ($i=0; $i < $len-1; $i++) {
+            for ($j=$i + 1; $j < $len; $j++) {
+                if($this->savedDice[$i] == $this->savedDice[$j]) {
+                    $diceSum += $this->savedDice[$i] + $this->savedDice[$j];
+                }
+            }
+        }
+        array_push($this->score, $diceSum);
     }
 
 
@@ -83,7 +132,7 @@ class Yatzy
     {
         $diceSum = 0;
         foreach ($this->savedDice as $value) {
-            if ($value == $this->turn + 1) {
+            if ($value == $this->turn) {
                 $diceSum = $diceSum + $value;
             }
         }

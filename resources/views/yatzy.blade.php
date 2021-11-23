@@ -17,6 +17,8 @@ $score = Session::get('yatzy')->getScore();
 
 <div class="game">
     <p><?= $message ?></p>
+    <p><?= $turn ?></p>
+    <p><?= $savedDie ?></p>
 
     <?php if (!isset($gameover)) : ?>
         <p>Select the dice you want to save.</p>
