@@ -74,7 +74,9 @@ class Yatzy
                 case 8:
                     $this->calcTwoPair();
                     break;
-
+                case 9:
+                    $this->calcThreeKind();
+                    break;
 
                 default:
                     break;
@@ -115,6 +117,19 @@ class Yatzy
                     $diceSum += $this->savedDice[$i] + $this->savedDice[$j];
                 }
             }
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcThreeKind(): void
+    {
+        $diceSum = 0;
+        $arr = array_count_values($this->savedDice);
+        asort($arr);
+        $key = arraY_key_first($arr);
+        $value = array_shift($arr);
+        if ($value >= 3) {
+            $diceSum = $key * 3;
         }
         array_push($this->score, $diceSum);
     }
