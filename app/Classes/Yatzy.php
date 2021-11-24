@@ -56,7 +56,7 @@ class Yatzy
             $this->turn++;
             //Testing on turn 1
             if ($this->turn == 1) {
-                $this->calcFullHouse();
+                $this->calcLargeStraight();
             }
             if ($this->turn <= 6 && $this->turn > 1) { //Testing on turn 1
                 $this->calcScore();
@@ -86,6 +86,12 @@ class Yatzy
                     break;
                 case 11:
                     $this->calcFullHouse();
+                    break;
+                case 12:
+                    $this->calcSmallStraight();
+                    break;
+                case 13:
+                    $this->calcLargeStraight();
                     break;
                 default:
                     break;
@@ -187,6 +193,32 @@ class Yatzy
                 $sum2 = $key2 * $value2;
             }
             $diceSum = $sum1 + $sum2;
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcSmallStraight(): void
+    {
+        $diceSum = 0;
+        $test = false;
+        for ($i=1; $i <= 5 ; $i++) {
+            $test += in_array($i, $this->savedDice);
+        }
+        if ($test == 5) {
+            $diceSum = 1 + 2 + 3 + 4 + 5;
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcLargeStraight(): void
+    {
+        $diceSum = 0;
+        $test = false;
+        for ($i=2; $i <= 6 ; $i++) {
+            $test += in_array($i, $this->savedDice);
+        }
+        if ($test == 5) {
+            $diceSum = 2 + 3 + 4 + 5 + 6;
         }
         array_push($this->score, $diceSum);
     }
