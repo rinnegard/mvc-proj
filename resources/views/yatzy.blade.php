@@ -142,32 +142,32 @@ $score = Session::get('yatzy')->getScore();
         </tr>
         <tr>
             <td>Small straight</td>
-            <?php if (isset($score[12])) : ?>
-                <td><?= $score[12] ?></td>
-            <?php endif; ?>
-        </tr>
-        <tr>
-            <td>Large straight</td>
             <?php if (isset($score[13])) : ?>
                 <td><?= $score[13] ?></td>
             <?php endif; ?>
         </tr>
         <tr>
-            <td>Chance</td>
+            <td>Large straight</td>
             <?php if (isset($score[14])) : ?>
                 <td><?= $score[14] ?></td>
             <?php endif; ?>
         </tr>
         <tr>
-            <td>Yatzy</td>
+            <td>Chance</td>
             <?php if (isset($score[15])) : ?>
                 <td><?= $score[15] ?></td>
             <?php endif; ?>
         </tr>
         <tr>
-            <td>Sum</td>
+            <td>Yatzy</td>
             <?php if (isset($score[16])) : ?>
                 <td><?= $score[16] ?></td>
+            <?php endif; ?>
+        </tr>
+        <tr>
+            <td>Sum</td>
+            <?php if (isset($score[17])) : ?>
+                <td><?= $score[17] ?></td>
             <?php endif; ?>
         </tr>
     </tbody>

@@ -54,7 +54,11 @@ class Yatzy
         if (isset($_POST["next"]) || $inp === "next") {
             $this->throws = 0;
             $this->turn++;
-            if ($this->turn <= 6) {
+            //Testing on turn 1
+            if ($this->turn == 1) {
+                $this->calcFullHouse();
+            }
+            if ($this->turn <= 6 && $this->turn > 1) { //Testing on turn 1
                 $this->calcScore();
             }
             if ($this->turn == 6) {
@@ -79,6 +83,9 @@ class Yatzy
                     break;
                 case 10:
                     $this->calcFourKind();
+                    break;
+                case 11:
+                    $this->calcFullHouse();
                     break;
                 default:
                     break;
@@ -164,10 +171,22 @@ class Yatzy
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
         arsort($arr);
-        $key = arraY_key_first($arr);
-        $value = array_shift($arr);
-        if ($value >= 4) {
-            $diceSum = $key * 4;
+        if (count($arr) == 2) {
+            $sum1 = 0;
+            $arr1 = array_slice($arr, 0, 1, true);
+            $key1 = array_key_first($arr1);
+            $value1 = array_shift($arr1);
+            if ($value1 >= 2) {
+                $sum1 = $key1 * $value1;
+            }
+            $sum2 = 0;
+            $arr2 = array_slice($arr, 1, 1, true);
+            $key2 = array_key_first($arr2);
+            $value2 = array_shift($arr2);
+            if ($value2 >= 2) {
+                $sum2 = $key2 * $value2;
+            }
+            $diceSum = $sum1 + $sum2;
         }
         array_push($this->score, $diceSum);
     }
