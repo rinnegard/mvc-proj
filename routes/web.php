@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GameController;
 use App\Http\Controllers\YatzyController;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\HighscoreController;
+use App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +16,8 @@ use App\Http\Controllers\HighscoreController;
 |
 */
 
-Route::get('/', function () {
-    return view('hello', ["name" => "World"]);
-})->name("hello");;
+Route::get('/', [HelloController::class, 'start'])->name("hello");
+Route::post('/', [HelloController::class, 'startGame']);
 
 Route::get('/yatzy', [YatzyController::class, 'start'])->name("yatzy");
 Route::post('/yatzy', [YatzyController::class, 'run'])->name("yatzyPost");

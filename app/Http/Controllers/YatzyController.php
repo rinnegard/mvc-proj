@@ -19,7 +19,7 @@ class YatzyController extends BaseController
     public function start(Request $request)
     {
         $data = [
-            "header" => "Yatzy!!",
+            "header" => "Play Yatzy!!",
             "message" => "Let's play!",
         ];
         $yatzy = app()->make(Yatzy::class);
@@ -35,6 +35,7 @@ class YatzyController extends BaseController
             $yatzyModel = new YatzyModel();
             // @phpstan-ignore-next-line
             $yatzyModel->score = $yatsy->getTotalScore();
+            $yatzyModel->name = $request->session()->get('name');
             $yatzyModel->save();
         }
         return view("yatzy", $data);

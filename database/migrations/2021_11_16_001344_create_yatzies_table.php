@@ -15,6 +15,7 @@ class CreateYatziesTable extends Migration
     {
         Schema::create('yatzies', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
             $table->integer("score");
         });
     }

@@ -9,7 +9,7 @@
             </tr>
             @foreach ($highscore as $key => $value)
                 <tr>
-                    <td>{{ $value["id"] }}</td>
+                    <td>{{ $value["name"] }}</td>
                     <td>{{ $value["score"] }}</td>
                 </tr>
             @endforeach
