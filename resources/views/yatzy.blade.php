@@ -15,9 +15,10 @@ $throws = Session::get('yatzy')->getThrows();
 $score = Session::get('yatzy')->getScore();
 $name = Session::get('name');
 
-?><h1><?= $header ?></h1>
 
+?>
 <div class="game">
+    <h1><?= $header ?></h1>
     <p><?= $message ?></p>
 
     <?php if (!isset($gameover)) : ?>
