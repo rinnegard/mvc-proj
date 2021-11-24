@@ -55,10 +55,10 @@ class Yatzy
             $this->throws = 0;
             $this->turn++;
             //Testing on turn 1
-            if ($this->turn == 1) {
-                $this->calcYatzy();
-            }
-            if ($this->turn <= 6 && $this->turn > 1) { //Testing on turn 1
+            // if ($this->turn == 1) {
+            //     $this->calcYatzy();
+            // }
+            if ($this->turn <= 6) { //Testing on turn 1 && $this->turn > 1
                 $this->calcScore();
             }
             if ($this->turn == 6) {
@@ -96,6 +96,11 @@ class Yatzy
                 case 14:
                     $this->calcChance();
                     break;
+                case 15:
+                    $this->calcYatzy();
+                    $this->calcTotalSum();
+                    $data["gameover"] = self::LOSEMESSAGE;
+                    break;
                 default:
                     break;
             }
@@ -104,6 +109,12 @@ class Yatzy
         }
 
         return $data;
+    }
+
+    public function calcTotalSum()
+    {
+        array_push($this->score, (array_sum($this->score) - $this->totalScore));
+        $this->totalScore = $this->score[17];
     }
 
 
