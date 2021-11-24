@@ -56,7 +56,7 @@ class Yatzy
             $this->turn++;
             //Testing on turn 1
             if ($this->turn == 1) {
-                $this->calcChance();
+                $this->calcYatzy();
             }
             if ($this->turn <= 6 && $this->turn > 1) { //Testing on turn 1
                 $this->calcScore();
@@ -232,6 +232,19 @@ class Yatzy
         array_push($this->score, $diceSum);
     }
 
+
+    public function calcYatzy(): void
+    {
+        $diceSum = 0;
+        $arr = array_count_values($this->savedDice);
+        arsort($arr);
+        $key = arraY_key_first($arr);
+        $value = array_shift($arr);
+        if ($value >= 5) {
+            $diceSum = $key * 5;
+        }
+        array_push($this->score, $diceSum);
+    }
 
     public function roll(): void
     {
