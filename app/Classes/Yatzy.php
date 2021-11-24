@@ -14,6 +14,7 @@ class Yatzy
     private int $throws = 0;
     private int $turn = 0;
     private ?int $totalScore = null;
+    private ?int $part1Score = null;
 
     const WINMESSAGE = "Time for the next round";
     const LOSEMESSAGE = "The game is over.";
@@ -69,7 +70,7 @@ class Yatzy
                 } else {
                     array_push($this->score, 0);
                 }
-                $this->totalScore = $this->score[6];
+                $this->part1Score = $this->score[6];
             }
             switch ($this->turn) {
                 case 7:
@@ -113,7 +114,7 @@ class Yatzy
 
     public function calcTotalSum()
     {
-        array_push($this->score, (array_sum($this->score) - $this->totalScore));
+        array_push($this->score, (array_sum($this->score) - $this->part1Score));
         $this->totalScore = $this->score[17];
     }
 
