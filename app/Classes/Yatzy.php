@@ -56,7 +56,7 @@ class Yatzy
             $this->turn++;
             //Testing on turn 1
             if ($this->turn == 1) {
-                $this->calcLargeStraight();
+                $this->calcChance();
             }
             if ($this->turn <= 6 && $this->turn > 1) { //Testing on turn 1
                 $this->calcScore();
@@ -92,6 +92,9 @@ class Yatzy
                     break;
                 case 13:
                     $this->calcLargeStraight();
+                    break;
+                case 14:
+                    $this->calcChance();
                     break;
                 default:
                     break;
@@ -220,6 +223,12 @@ class Yatzy
         if ($test == 5) {
             $diceSum = 2 + 3 + 4 + 5 + 6;
         }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcChance(): void
+    {
+        $diceSum = array_sum($this->savedDice);
         array_push($this->score, $diceSum);
     }
 
