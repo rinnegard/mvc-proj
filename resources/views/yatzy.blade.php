@@ -9,6 +9,7 @@ $message = $message ?? null;
 
 $die1 = Session::get('yatzy')->show();
 $savedDie = Session::get('yatzy')->showSaved();
+$savedDiceHand = Session::get('yatzy')->getSavedDiceHand();
 $turn = Session::get('yatzy')->getTurn();
 $throws = Session::get('yatzy')->getThrows();
 $score = Session::get('yatzy')->getScore();
@@ -18,8 +19,6 @@ $name = Session::get('name');
 
 <div class="game">
     <p><?= $message ?></p>
-    <p><?= $turn ?></p>
-    <p><?= $savedDie ?></p>
 
     <?php if (!isset($gameover)) : ?>
         <p>Select the dice you want to save.</p>
@@ -46,10 +45,16 @@ $name = Session::get('name');
         <?php if (isset($roundEnd)) : ?>
             <form  action="" method="post">
                 @csrf
-                <input class="button" type="submit" name="next" value="next">
+                <input class="button" type="submit" name="next" value="Next Round">
             </form>
             <p><?= $roundEnd ?></p>
         <?php endif; ?>
+        <h3>Saved Dice:</h3>
+        <p>
+            @foreach ($savedDiceHand as $key => $value)
+                <i class="fas fa-dice-{{ $value->getFaceString() }} fa-3x"></i>
+            @endforeach
+        </p>
     <?php endif; ?>
     <?php if (isset($gameover)) : ?>
         <p><?= $gameover ?></p>

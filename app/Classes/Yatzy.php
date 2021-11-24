@@ -9,6 +9,7 @@ use App\Classes\DiceHand;
 class Yatzy
 {
     public $playerDiceHand;
+    private array $savedDiceHand = [];
     private array $savedDice = [];
     private array $score = [];
     private int $throws = 0;
@@ -48,6 +49,7 @@ class Yatzy
             unset($_POST["_token"]);
             foreach ($_POST as $key => $value) {
                 array_push($this->savedDice, $value);
+                array_push($this->savedDiceHand, $this->playerDiceHand->getAllDice()[$key]);
                 $this->playerDiceHand->removeDie(intval($key));
             }
         }
@@ -107,6 +109,7 @@ class Yatzy
             }
             $this->playerDiceHand = new DiceHand(5);
             $this->savedDice = [];
+            $this->savedDiceHand = [];
         }
 
         return $data;
@@ -305,6 +308,12 @@ class Yatzy
     public function showSaved(): string
     {
         return json_encode($this->savedDice);
+    }
+
+    public function getSavedDiceHand(): array
+    {
+
+        return $this->savedDiceHand;
     }
 
     public function getTurn(): int
