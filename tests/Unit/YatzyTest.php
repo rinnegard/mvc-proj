@@ -54,7 +54,6 @@ class YatzyTest extends TestCase
         }
         $yatzy->setScore([20, 20, 20, 20, 20]);
         $data = $yatzy->play("next");
-        $this->assertArrayHasKey("gameover", $data);
         $this->assertEquals(50, $yatzy->getScore()[7]);
     }
 

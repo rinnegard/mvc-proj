@@ -1,0 +1,26 @@
+
+FILE: C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php
+--------------------------------------------------------------------------------
+FOUND 14 ERRORS AFFECTING 6 LINES
+--------------------------------------------------------------------------------
+ 126 | ERROR | [x] Expected at least 1 space before "="; 0 found
+ 126 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 126 | ERROR | [x] Expected at least 1 space before "-"; 0 found
+ 126 | ERROR | [x] Expected at least 1 space after "-"; 0 found
+ 127 | ERROR | [x] Expected at least 1 space before "="; 0 found
+ 127 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 128 | ERROR | [x] Expected 1 space(s) after IF keyword; 0 found
+ 162 | ERROR | [x] Function closing brace must go on the next line following
+     |       |     the body; found 1 blank lines before brace
+ 219 | ERROR | [x] Expected at least 1 space before "="; 0 found
+ 219 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 219 | ERROR | [x] Whitespace found before second semicolon of FOR loop
+ 232 | ERROR | [x] Expected at least 1 space before "="; 0 found
+ 232 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 232 | ERROR | [x] Whitespace found before second semicolon of FOR loop
+--------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 14 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------
+
+Time: 2.09 secs; Memory: 8MB
+

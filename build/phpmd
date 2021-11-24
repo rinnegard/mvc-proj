@@ -1,1 +1,5 @@
-C:\Users\victo\dbwebb-kurser\mvc\me\orm\app-game\app\Classes\Yatzy.php:26	The method play() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:9	The class Yatzy has 16 public methods. Consider refactoring Yatzy to keep number of public methods under 10.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:9	The class Yatzy has an overall complexity of 63 which is very high. The configured complexity threshold is 50.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:27	The method play() has a Cyclomatic Complexity of 22. The configured cyclomatic complexity threshold is 10.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:27	The method play() has an NPath complexity of 1488. The configured NPath complexity threshold is 200.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:70	The method play uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.

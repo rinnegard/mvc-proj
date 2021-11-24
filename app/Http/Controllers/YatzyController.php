@@ -35,6 +35,7 @@ class YatzyController extends BaseController
             $yatzyModel = new YatzyModel();
             // @phpstan-ignore-next-line
             $yatzyModel->score = $yatsy->getTotalScore();
+            // @phpstan-ignore-next-line
             $yatzyModel->name = $request->session()->get('name');
             $yatzyModel->save();
         }
