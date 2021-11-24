@@ -77,7 +77,9 @@ class Yatzy
                 case 9:
                     $this->calcThreeKind();
                     break;
-
+                case 10:
+                    $this->calcFourKind();
+                    break;
                 default:
                     break;
             }
@@ -110,26 +112,51 @@ class Yatzy
     public function calcTwoPair(): void
     {
         $diceSum = 0;
-        $len = count($this->savedDice);
-        for ($i=0; $i < $len-1; $i++) {
-            for ($j=$i + 1; $j < $len; $j++) {
-                if($this->savedDice[$i] == $this->savedDice[$j]) {
-                    $diceSum += $this->savedDice[$i] + $this->savedDice[$j];
-                }
+        $arr = array_count_values($this->savedDice);
+        arsort($arr);
+        if (count($arr) == 2) {
+            $sum1 = 0;
+            $arr1 = array_slice($arr, 0, 1, true);
+            $key1 = array_key_first($arr1);
+            $value1 = array_shift($arr1);
+            if ($value1 >= 2) {
+                $sum1 = $key1 * 2;
             }
+            $sum2 = 0;
+            $arr2 = array_slice($arr, 1, 1, true);
+            $key2 = array_key_first($arr2);
+            $value2 = array_shift($arr2);
+            if ($value2 >= 2) {
+                $sum2 = $key2 * 2;
+            }
+            $diceSum = $sum1 + $sum2;
         }
         array_push($this->score, $diceSum);
+
     }
 
     public function calcThreeKind(): void
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
-        asort($arr);
-        $key = arraY_key_first($arr);
+        arsort($arr);
+        $key = array_key_first($arr);
         $value = array_shift($arr);
         if ($value >= 3) {
             $diceSum = $key * 3;
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcFourKind(): void
+    {
+        $diceSum = 0;
+        $arr = array_count_values($this->savedDice);
+        arsort($arr);
+        $key = arraY_key_first($arr);
+        $value = array_shift($arr);
+        if ($value >= 4) {
+            $diceSum = $key * 4;
         }
         array_push($this->score, $diceSum);
     }
