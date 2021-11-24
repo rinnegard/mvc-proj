@@ -98,9 +98,7 @@ class Yatzy
         for ($i=0; $i < $len-1; $i++) {
             for ($j=$i + 1; $j < $len; $j++) {
                 if($this->savedDice[$i] == $this->savedDice[$j]) {
-                    if ($diceSum > 0 && $diceSum < $this->savedDice[$i] * 2) {
-                        $diceSum = intval($this->savedDice[$i]) * 2;
-                    } else {
+                    if ($diceSum < $this->savedDice[$i] * 2) {
                         $diceSum = intval($this->savedDice[$i]) * 2;
                     }
                 }
@@ -149,6 +147,19 @@ class Yatzy
     }
 
     public function calcFourKind(): void
+    {
+        $diceSum = 0;
+        $arr = array_count_values($this->savedDice);
+        arsort($arr);
+        $key = arraY_key_first($arr);
+        $value = array_shift($arr);
+        if ($value >= 4) {
+            $diceSum = $key * 4;
+        }
+        array_push($this->score, $diceSum);
+    }
+
+    public function calcFullHouse(): void
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
