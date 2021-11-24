@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Yatzy</title>
         <link rel="stylesheet" type="text/css" href={{ URL::asset('css/style.css'); }} >
+        <script src="https://kit.fontawesome.com/7d2dca549c.js" crossorigin="anonymous"></script>
 
     </head>
     <body>

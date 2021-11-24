@@ -23,4 +23,24 @@ class Dice
     {
         return $this->face;
     }
+
+    public function getFaceString(): string
+    {
+        switch ($this->face) {
+            case 1:
+                return "one";
+            case 2:
+                return "two";
+            case 3:
+                return "three";
+            case 4:
+                return "four";
+            case 5:
+                return "five";
+            case 6:
+                return "six";
+            default:
+                return "d6";
+        }
+    }
 }
