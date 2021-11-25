@@ -28,9 +28,11 @@ $name = Session::get('name');
             <form  action="" method="post">
                 @csrf
                 <?php foreach ($die1 as $key => $value) : ?>
+                <label>
                 <input type="checkbox" name="<?= $key ?>" value="<?= $value->getFace() ?>">
                     <i class="fas fa-dice-{{ $value->getFaceString() }} fa-3x"></i>
                 </input>
+                </label>
                 <?php endforeach; ?>
                 <input class="button" type="submit" name="save" value="Save">
             </form>
