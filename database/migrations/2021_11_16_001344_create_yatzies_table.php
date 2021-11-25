@@ -17,6 +17,7 @@ class CreateYatziesTable extends Migration
             $table->id();
             $table->string("name");
             $table->integer("score");
+            $table->text("histogram");
         });
     }
 

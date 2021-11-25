@@ -11,6 +11,7 @@
                 <tr>
                     <td>{{ $value["name"] }}</td>
                     <td>{{ $value["score"] }}</td>
+                    <td>{{ var_dump(json_decode($value["histogram"])) }}</td>
                 </tr>
             @endforeach
         </table>

@@ -62,14 +62,18 @@ $name = Session::get('name');
         <caption>Dice Histogram</caption>
         <tr>
             <th>Dice</th>
-            <th>Count</th>
-        </tr>
-        @foreach ($histogram as $key => $value)
-        <tr>
+            @foreach ($histogram as $key => $value)
             <td>{{ $key + 1 }}</td>
-            <td>{{ $value }}</td>
+            @endforeach
         </tr>
-        @endforeach
+
+        <tr>
+            <th>Count</th>
+            @foreach ($histogram as $key => $value)
+            <td>{{ $value }}</td>
+            @endforeach
+        </tr>
+
     </table>
     <?php if (isset($gameover)) : ?>
         <p><?= $gameover ?></p>

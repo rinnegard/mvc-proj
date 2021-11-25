@@ -36,7 +36,9 @@ class YatzyController extends BaseController
             // @phpstan-ignore-next-line
             $yatzyModel->score = $yatsy->getTotalScore();
             // @phpstan-ignore-next-line
-            $yatzyModel->name = $request->session()->get('name');
+            $yatzyModel->name = $request->session()->get('name') ?? "Anonymous";
+            // @phpstan-ignore-next-line
+            $yatzyModel->histogram = json_encode($yatsy->getDiceHistogram());
             $yatzyModel->save();
         }
         return view("yatzy", $data);
