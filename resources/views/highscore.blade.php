@@ -1,8 +1,15 @@
 @extends("layouts.basic")
 
 @section("content")
-
+        <form  action="" method="post">
+            @csrf
+            <input type="text" name="search" value="" placeholder="Search">
+            <input class="button" type="submit" name="submit" value="Search">
+        </form>
         <table>
+            @isset($posted)
+                <caption>Displaying results for "{{ $posted }}":</caption>
+            @endisset
             <tr>
                 <th>Player</td>
                 <th>Score</td>

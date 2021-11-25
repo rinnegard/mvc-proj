@@ -23,3 +23,4 @@ Route::get('/yatzy', [YatzyController::class, 'start'])->name("yatzy");
 Route::post('/yatzy', [YatzyController::class, 'run'])->name("yatzyPost");
 
 Route::get('yatsy/highscore', [HighscoreController::class, 'start'])->name("highscore");
+Route::post('yatsy/highscore', [HighscoreController::class, 'search'])->name("highscore");
