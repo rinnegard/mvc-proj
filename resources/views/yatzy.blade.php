@@ -13,6 +13,7 @@ $savedDiceHand = Session::get('yatzy')->getSavedDiceHand();
 $turn = Session::get('yatzy')->getTurn();
 $throws = Session::get('yatzy')->getThrows();
 $score = Session::get('yatzy')->getScore();
+$histogram = Session::get('yatzy')->getDiceHistogram();
 $name = Session::get('name');
 
 
@@ -57,6 +58,19 @@ $name = Session::get('name');
             @endforeach
         </p>
     <?php endif; ?>
+    <table>
+        <caption>Dice Histogram</caption>
+        <tr>
+            <th>Dice</th>
+            <th>Count</th>
+        </tr>
+        @foreach ($histogram as $key => $value)
+        <tr>
+            <td>{{ $key + 1 }}</td>
+            <td>{{ $value }}</td>
+        </tr>
+        @endforeach
+    </table>
     <?php if (isset($gameover)) : ?>
         <p><?= $gameover ?></p>
     <?php endif; ?>

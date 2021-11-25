@@ -12,6 +12,7 @@ class Yatzy
     private array $savedDiceHand = [];
     private array $savedDice = [];
     private array $score = [];
+    private array $diceHistogram = [0, 0, 0, 0, 0, 0];
     private int $throws = 0;
     private int $turn = 0;
     private ?int $totalScore = null;
@@ -266,7 +267,37 @@ class Yatzy
         if ($this->throws < 3) {
             $this->throws++;
             $this->playerDiceHand->roll();
+            foreach ($this->playerDiceHand->getAllDice() as $key => $value) {
+                $value->getFace();
+                switch ($value->getFace()) {
+                    case 1:
+                        $this->diceHistogram[0] += 1;
+                        break;
+                    case 2:
+                        $this->diceHistogram[1] += 1;
+                        break;
+                    case 3:
+                        $this->diceHistogram[2] += 1;
+                        break;
+                    case 4:
+                        $this->diceHistogram[3] += 1;
+                        break;
+                    case 5:
+                        $this->diceHistogram[4] += 1;
+                        break;
+                    case 6:
+                        $this->diceHistogram[5] += 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
+    }
+
+    public function getDiceHistogram(): array
+    {
+        return $this->diceHistogram;
     }
 
     public function calcScore(): void
