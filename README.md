@@ -1,3 +1,9 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/badges/build.png?b=main)](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/build-status/main)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/rinnegard/mvc-proj/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
+[![Build Status](https://app.travis-ci.com/rinnegard/mvc-proj.svg?branch=main)](https://app.travis-ci.com/rinnegard/mvc-proj)
+
 # Yatzy Project
 
 This is a simple website where you can play the game [Yatzy](https://en.wikipedia.org/wiki/Yatzy).
