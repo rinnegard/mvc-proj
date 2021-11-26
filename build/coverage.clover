@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637968589">
-  <project timestamp="1637968589">
+<coverage generated="1637968791">
+  <project timestamp="1637968791">
     <file name="C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Dice.php">
       <class name="App\Classes\Dice" namespace="global">
         <metrics complexity="11" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="5" elements="23" coveredelements="8"/>
@@ -263,20 +263,20 @@
       <line num="296" type="stmt" count="3"/>
       <line num="297" type="stmt" count="3"/>
       <line num="298" type="stmt" count="3"/>
-      <line num="299" type="stmt" count="2"/>
-      <line num="300" type="stmt" count="2"/>
+      <line num="299" type="stmt" count="3"/>
+      <line num="300" type="stmt" count="3"/>
       <line num="301" type="stmt" count="3"/>
-      <line num="302" type="stmt" count="3"/>
-      <line num="303" type="stmt" count="3"/>
+      <line num="302" type="stmt" count="2"/>
+      <line num="303" type="stmt" count="2"/>
       <line num="304" type="stmt" count="3"/>
       <line num="305" type="stmt" count="3"/>
       <line num="306" type="stmt" count="3"/>
       <line num="307" type="stmt" count="3"/>
       <line num="308" type="stmt" count="2"/>
       <line num="309" type="stmt" count="2"/>
-      <line num="310" type="stmt" count="2"/>
-      <line num="311" type="stmt" count="2"/>
-      <line num="312" type="stmt" count="2"/>
+      <line num="310" type="stmt" count="3"/>
+      <line num="311" type="stmt" count="3"/>
+      <line num="312" type="stmt" count="3"/>
       <line num="314" type="stmt" count="0"/>
       <line num="318" type="stmt" count="3"/>
       <line num="320" type="method" name="getDiceHistogram" visibility="public" complexity="1" crap="2" count="0"/>

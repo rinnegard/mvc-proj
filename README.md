@@ -19,14 +19,14 @@ The website was made as the final project in the course "Objektorienterade webbt
 ## Install
 
 1. Clone the [github directory](https://github.com/rinnegard/mvc-proj)..
-        git clone https://github.com/rinnegard/mvc-proj.git
+    git clone https://github.com/rinnegard/mvc-proj.git
 2. Go to your new directory and run command to install.
-        make install
+    make install
 3. Copy the .env.example file and name it .env
 4. Run command to set APP_ENV in .env
-        php artisan key:generate
+    php artisan key:generate
 5. Add your own database configuration to the new .env file and then run command to set up your database
-        php artisan migrate:fresh --seed
+    php artisan migrate:fresh --seed
 
 6. Run command to start your website at http://localhost:3000. You can set whatever port is free for you
-        $ php artisan serve --port=3000
+    $ php artisan serve --port=3000
