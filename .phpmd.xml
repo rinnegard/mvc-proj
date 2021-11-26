@@ -53,7 +53,6 @@
     <rule ref="rulesets/unusedcode.xml" />
 
 
-
 <!--
     <rule ref="rulesets/cleancode.xml">
         <exclude name="BooleanArgumentFlag" />

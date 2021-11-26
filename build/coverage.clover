@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637941540">
-  <project timestamp="1637941540">
+<coverage generated="1637968589">
+  <project timestamp="1637968589">
     <file name="C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Dice.php">
       <class name="App\Classes\Dice" namespace="global">
         <metrics complexity="11" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="5" elements="23" coveredelements="8"/>
@@ -269,14 +269,14 @@
       <line num="302" type="stmt" count="3"/>
       <line num="303" type="stmt" count="3"/>
       <line num="304" type="stmt" count="3"/>
-      <line num="305" type="stmt" count="2"/>
-      <line num="306" type="stmt" count="2"/>
+      <line num="305" type="stmt" count="3"/>
+      <line num="306" type="stmt" count="3"/>
       <line num="307" type="stmt" count="3"/>
-      <line num="308" type="stmt" count="3"/>
-      <line num="309" type="stmt" count="3"/>
-      <line num="310" type="stmt" count="3"/>
-      <line num="311" type="stmt" count="3"/>
-      <line num="312" type="stmt" count="3"/>
+      <line num="308" type="stmt" count="2"/>
+      <line num="309" type="stmt" count="2"/>
+      <line num="310" type="stmt" count="2"/>
+      <line num="311" type="stmt" count="2"/>
+      <line num="312" type="stmt" count="2"/>
       <line num="314" type="stmt" count="0"/>
       <line num="318" type="stmt" count="3"/>
       <line num="320" type="method" name="getDiceHistogram" visibility="public" complexity="1" crap="2" count="0"/>
@@ -449,12 +449,6 @@
       </class>
       <metrics loc="17" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <file name="C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Models\Books.php">
-      <class name="App\Models\Books" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="13" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
     <file name="C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Models\User.php">
       <class name="App\Models\User" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -527,6 +521,6 @@
       <line num="62" type="stmt" count="1"/>
       <metrics loc="63" ncloc="38" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="17" coveredelements="15"/>
     </file>
-    <metrics files="27" loc="1191" ncloc="993" classes="17" methods="55" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="309" coveredstatements="95" elements="364" coveredelements="117"/>
+    <metrics files="26" loc="1178" ncloc="980" classes="17" methods="55" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="309" coveredstatements="95" elements="364" coveredelements="117"/>
   </project>
 </coverage>
