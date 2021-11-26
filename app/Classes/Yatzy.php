@@ -62,9 +62,9 @@ class Yatzy
             // if ($this->turn == 1) {
             //     $this->calcYatzy();
             // }
-            if ($this->turn <= 6) { //Testing on turn 1 && $this->turn > 1
-                $this->calcScore();
-            }
+            // if ($this->turn <= 6) { //Testing on turn 1 && $this->turn > 1
+            //     $this->calcScore();
+            // }
             if ($this->turn == 6) {
                 // $data["gameover"] = self::LOSEMESSAGE;
                 array_push($this->score, array_sum($this->score));
@@ -75,32 +75,50 @@ class Yatzy
                 }
                 $this->part1Score = $this->score[6];
             }
-            switch ($this->turn) {
-                case 7:
-                    $this->calcOnePair();
+            switch ($_POST["option"]) {
+                case "ones":
+                    $this->score[0] = $this->calcScore(1);
                     break;
-                case 8:
-                    $this->calcTwoPair();
+                case "twoes":
+                    $this->score[1] = $this->calcScore(2);
                     break;
-                case 9:
-                    $this->calcThreeKind();
+                case "threes":
+                    $this->score[2] = $this->calcScore(3);
                     break;
-                case 10:
-                    $this->calcFourKind();
+                case "fours":
+                    $this->score[3] = $this->calcScore(4);
                     break;
-                case 11:
-                    $this->calcFullHouse();
+                case "fives":
+                    $this->score[4] = $this->calcScore(5);
                     break;
-                case 12:
-                    $this->calcSmallStraight();
+                case "sixes":
+                    $this->score[5] = $this->calcScore(6);
                     break;
-                case 13:
-                    $this->calcLargeStraight();
+                case "one-pair":
+                    $this->score[8] = $this->calcOnePair();
                     break;
-                case 14:
-                    $this->calcChance();
+                case "two-pair":
+                    $this->score[9] = $this->calcTwoPair();
                     break;
-                case 15:
+                case "three-kind":
+                    $this->score[10] = $this->calcThreeKind();
+                    break;
+                case "four-kind":
+                    $this->score[11] = $this->calcFourKind();
+                    break;
+                case "full-house":
+                    $this->score[12] = $this->calcFullHouse();
+                    break;
+                case "s-straight":
+                    $this->score[13] = $this->calcSmallStraight();
+                    break;
+                case "l-straight":
+                    $this->score[14] = $this->calcLargeStraight();
+                    break;
+                case "chance":
+                    $this->score[15] = $this->calcChance();
+                    break;
+                case "yatzy":
                     $this->calcYatzy();
                     $this->calcTotalSum();
                     $data["gameover"] = self::LOSEMESSAGE;
@@ -123,7 +141,7 @@ class Yatzy
     }
 
 
-    public function calcOnePair(): void
+    public function calcOnePair(): int
     {
         $diceSum = 0;
         $len = count($this->savedDice);
@@ -136,10 +154,11 @@ class Yatzy
                 }
             }
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
+        // array_push($this->score, $diceSum);
     }
 
-    public function calcTwoPair(): void
+    public function calcTwoPair(): int
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
@@ -161,11 +180,11 @@ class Yatzy
             }
             $diceSum = $sum1 + $sum2;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
 
     }
 
-    public function calcThreeKind(): void
+    public function calcThreeKind(): int
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
@@ -175,10 +194,10 @@ class Yatzy
         if ($value >= 3) {
             $diceSum = $key * 3;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
-    public function calcFourKind(): void
+    public function calcFourKind(): int
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
@@ -188,10 +207,10 @@ class Yatzy
         if ($value >= 4) {
             $diceSum = $key * 4;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
-    public function calcFullHouse(): void
+    public function calcFullHouse(): int
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
@@ -213,10 +232,10 @@ class Yatzy
             }
             $diceSum = $sum1 + $sum2;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
-    public function calcSmallStraight(): void
+    public function calcSmallStraight(): int
     {
         $diceSum = 0;
         $test = false;
@@ -226,10 +245,10 @@ class Yatzy
         if ($test == 5) {
             $diceSum = 1 + 2 + 3 + 4 + 5;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
-    public function calcLargeStraight(): void
+    public function calcLargeStraight(): int
     {
         $diceSum = 0;
         $test = false;
@@ -239,17 +258,17 @@ class Yatzy
         if ($test == 5) {
             $diceSum = 2 + 3 + 4 + 5 + 6;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
-    public function calcChance(): void
+    public function calcChance(): int
     {
         $diceSum = array_sum($this->savedDice);
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
 
-    public function calcYatzy(): void
+    public function calcYatzy(): int
     {
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
@@ -257,9 +276,9 @@ class Yatzy
         $key = arraY_key_first($arr);
         $value = array_shift($arr);
         if ($value >= 5) {
-            $diceSum = $key * 5;
+            $diceSum = 50;
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
     public function roll(): void
@@ -300,15 +319,15 @@ class Yatzy
         return $this->diceHistogram;
     }
 
-    public function calcScore(): void
+    public function calcScore($inp): int
     {
         $diceSum = 0;
         foreach ($this->savedDice as $value) {
-            if ($value == $this->turn) {
+            if ($value == $inp) {
                 $diceSum = $diceSum + $value;
             }
         }
-        array_push($this->score, $diceSum);
+        return $diceSum;
     }
 
     public function setScore($score): void

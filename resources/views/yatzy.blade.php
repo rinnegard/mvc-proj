@@ -47,8 +47,26 @@ $name = Session::get('name');
             </form>
         <?php endif; ?>
         <?php if (isset($roundEnd)) : ?>
+            <p></p>
             <form  action="" method="post">
                 @csrf
+                <select name="option" required >
+                    <option value="ones">Ones</option>
+                    <option value="twoes">Twoes</option>
+                    <option value="threes">Threes</option>
+                    <option value="fours">Fours</option>
+                    <option value="fives">Fives</option>
+                    <option value="sixes">Sixes</option>
+                    <option value="one-pair">One Pair</option>
+                    <option value="two-pair">Two Pair</option>
+                    <option value="three-kind">Three of a kind</option>
+                    <option value="four-kind">Four of a kind</option>
+                    <option value="full-house">Full house</option>
+                    <option value="s-straight">Small Straight</option>
+                    <option value="l-straight">Large Straight</option>
+                    <option value="chance">Chance</option>
+                    <option value="yatzy">Yatzy</option>
+                </select>
                 <input class="button" type="submit" name="next" value="Next Round">
             </form>
             <p><?= $roundEnd ?></p>
@@ -268,4 +286,5 @@ $name = Session::get('name');
         </tr>
     </tbody>
 </table>
+</form>
 @endsection
