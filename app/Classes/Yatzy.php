@@ -15,6 +15,7 @@ class Yatzy
     private array $diceHistogram = [0, 0, 0, 0, 0, 0];
     private int $throws = 0;
     private int $turn = 0;
+    private int $part1Counter = 0;
     private ?int $totalScore = null;
     private ?int $part1Score = null;
 
@@ -65,16 +66,6 @@ class Yatzy
             // if ($this->turn <= 6) { //Testing on turn 1 && $this->turn > 1
             //     $this->calcScore();
             // }
-            if ($this->turn == 6) {
-                // $data["gameover"] = self::LOSEMESSAGE;
-                array_push($this->score, array_sum($this->score));
-                if ($this->score[6] >= 63) {
-                    array_push($this->score, 50);
-                } else {
-                    array_push($this->score, 0);
-                }
-                $this->part1Score = $this->score[6];
-            }
             switch ($_POST["option"]) {
                 case "ones":
                     $this->score[0] = $this->calcScore(1);
@@ -119,12 +110,24 @@ class Yatzy
                     $this->score[15] = $this->calcChance();
                     break;
                 case "yatzy":
-                    $this->calcYatzy();
+                    $this->score[16] = $this->calcYatzy();
                     $this->calcTotalSum();
                     $data["gameover"] = self::LOSEMESSAGE;
                     break;
                 default:
                     break;
+            }
+            if ($this->part1Counter == 6) {
+                $this->score[6] = 0;
+                for ($i=0; $i < 6; $i++) {
+                    $this->score[6] += $this->score[$i];
+                }
+                if ($this->score[6] >= 63) {
+                    $this->score[7] = 50;
+                } else {
+                    $this->score[7] = 0;
+                }
+                $this->part1Score = $this->score[6];
             }
             $this->playerDiceHand = new DiceHand(5);
             $this->savedDice = [];
@@ -134,7 +137,7 @@ class Yatzy
         return $data;
     }
 
-    public function calcTotalSum()
+    public function calcTotalSum(): void
     {
         array_push($this->score, (array_sum($this->score) - $this->part1Score));
         $this->totalScore = $this->score[17];
@@ -321,6 +324,7 @@ class Yatzy
 
     public function calcScore($inp): int
     {
+        $this->part1Counter += 1;
         $diceSum = 0;
         foreach ($this->savedDice as $value) {
             if ($value == $inp) {
