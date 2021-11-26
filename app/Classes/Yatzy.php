@@ -111,8 +111,6 @@ class Yatzy
                     break;
                 case "yatzy":
                     $this->score[16] = $this->calcYatzy();
-                    $this->calcTotalSum();
-                    $data["gameover"] = self::LOSEMESSAGE;
                     break;
                 default:
                     break;
@@ -128,6 +126,10 @@ class Yatzy
                     $this->score[7] = 0;
                 }
                 $this->part1Score = $this->score[6];
+            }
+            if ($this->turn == 15) {
+                $this->calcTotalSum();
+                $data["gameover"] = self::LOSEMESSAGE;
             }
             $this->playerDiceHand = new DiceHand(5);
             $this->savedDice = [];
