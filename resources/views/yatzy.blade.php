@@ -51,21 +51,51 @@ $name = Session::get('name');
             <form  action="" method="post">
                 @csrf
                 <select name="option" required >
-                    <option value="ones">Ones</option>
-                    <option value="twoes">Twoes</option>
-                    <option value="threes">Threes</option>
-                    <option value="fours">Fours</option>
-                    <option value="fives">Fives</option>
-                    <option value="sixes">Sixes</option>
-                    <option value="one-pair">One Pair</option>
-                    <option value="two-pair">Two Pair</option>
-                    <option value="three-kind">Three of a kind</option>
-                    <option value="four-kind">Four of a kind</option>
-                    <option value="full-house">Full house</option>
-                    <option value="s-straight">Small Straight</option>
-                    <option value="l-straight">Large Straight</option>
-                    <option value="chance">Chance</option>
-                    <option value="yatzy">Yatzy</option>
+                    @if (!isset($score[0]))
+                        <option value="ones">Ones</option>
+                    @endif
+                    @if (!isset($score[1]))
+                        <option value="twoes">Twoes</option>
+                    @endif
+                    @if (!isset($score[2]))
+                        <option value="threes">Threes</option>
+                    @endif
+                    @if (!isset($score[3]))
+                        <option value="fours">Fours</option>
+                    @endif
+                    @if (!isset($score[4]))
+                        <option value="fives">Fives</option>
+                    @endif
+                    @if (!isset($score[5]))
+                        <option value="sixes">Sixes</option>
+                    @endif
+                    @if (!isset($score[8]))
+                        <option value="one-pair">One Pair</option>
+                    @endif
+                    @if (!isset($score[9]))
+                        <option value="two-pair">Two Pair</option>
+                    @endif
+                    @if (!isset($score[10]))
+                        <option value="three-kind">Three of a kind</option>
+                    @endif
+                    @if (!isset($score[11]))
+                        <option value="four-kind">Four of a kind</option>
+                    @endif
+                    @if (!isset($score[12]))
+                        <option value="full-house">Full house</option>
+                    @endif
+                    @if (!isset($score[13]))
+                        <option value="s-straight">Small Straight</option>
+                    @endif
+                    @if (!isset($score[14]))
+                        <option value="l-straight">Large Straight</option>
+                    @endif
+                    @if (!isset($score[15]))
+                        <option value="chance">Chance</option>
+                    @endif
+                    @if (!isset($score[16]))
+                        <option value="yatzy">Yatzy</option>
+                    @endif
                 </select>
                 <input class="button" type="submit" name="next" value="Next Round">
             </form>
