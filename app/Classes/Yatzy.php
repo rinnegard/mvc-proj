@@ -117,7 +117,7 @@ class Yatzy
             }
             if ($this->part1Counter == 6) {
                 $this->score[6] = 0;
-                for ($i=0; $i < 6; $i++) {
+                for ($i = 0; $i < 6; $i++) {
                     $this->score[6] += $this->score[$i];
                 }
                 if ($this->score[6] >= 63) {
@@ -150,9 +150,9 @@ class Yatzy
     {
         $diceSum = 0;
         $len = count($this->savedDice);
-        for ($i=0; $i < $len-1; $i++) {
-            for ($j=$i + 1; $j < $len; $j++) {
-                if($this->savedDice[$i] == $this->savedDice[$j]) {
+        for ($i = 0; $i < $len - 1; $i++) {
+            for ($j = $i + 1; $j < $len; $j++) {
+                if ($this->savedDice[$i] == $this->savedDice[$j]) {
                     if ($diceSum < $this->savedDice[$i] * 2) {
                         $diceSum = intval($this->savedDice[$i]) * 2;
                     }
@@ -186,7 +186,6 @@ class Yatzy
             $diceSum = $sum1 + $sum2;
         }
         return $diceSum;
-
     }
 
     public function calcThreeKind(): int
@@ -244,7 +243,7 @@ class Yatzy
     {
         $diceSum = 0;
         $test = false;
-        for ($i=1; $i <= 5 ; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $test += in_array($i, $this->savedDice);
         }
         if ($test == 5) {
@@ -257,7 +256,7 @@ class Yatzy
     {
         $diceSum = 0;
         $test = false;
-        for ($i=2; $i <= 6 ; $i++) {
+        for ($i = 2; $i <= 6; $i++) {
             $test += in_array($i, $this->savedDice);
         }
         if ($test == 5) {

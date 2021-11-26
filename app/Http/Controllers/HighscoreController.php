@@ -24,6 +24,7 @@ class HighscoreController extends BaseController
     public function search(Request $request)
     {
         $search = $request->post('search');
+        // @phpstan-ignore-next-line
         $highscore = YatzyModel::where('name', "like", "%{$search}%")->get()->sortByDesc("score");
         return view("highscore", ["highscore" => $highscore, "posted" => $search]);
     }

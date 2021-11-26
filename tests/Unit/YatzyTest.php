@@ -37,25 +37,25 @@ class YatzyTest extends TestCase
         $this->assertArrayHasKey("roundEnd", $data);
     }
 
-    public function testYatzyPlayNext()
-    {
-        $yatzy = new Yatzy();
-        for ($i = 0; $i < 2; $i++) {
-            $yatzy->play("roll");
-        }
-        $this->assertEmpty($yatzy->getScore());
-        $this->assertEquals(2, $yatzy->getThrows());
-        $yatzy->play("next");
-        $this->assertEquals(0, $yatzy->getThrows());
-        $this->assertNotEmpty($yatzy->getScore());
-        $this->assertequals(1, $yatzy->getTurn());
-        for ($i = 0; $i < 4; $i++) {
-            $data = $yatzy->play("next");
-        }
-        $yatzy->setScore([20, 20, 20, 20, 20]);
-        $data = $yatzy->play("next");
-        $this->assertEquals(50, $yatzy->getScore()[7]);
-    }
+    // public function testYatzyPlayNext()
+    // {
+    //     $yatzy = new Yatzy();
+    //     for ($i = 0; $i < 2; $i++) {
+    //         $yatzy->play("roll");
+    //     }
+    //     $this->assertEmpty($yatzy->getScore());
+    //     $this->assertEquals(2, $yatzy->getThrows());
+    //     $yatzy->play("next");
+    //     $this->assertEquals(0, $yatzy->getThrows());
+    //     $this->assertNotEmpty($yatzy->getScore());
+    //     $this->assertequals(1, $yatzy->getTurn());
+    //     for ($i = 0; $i < 4; $i++) {
+    //         $data = $yatzy->play("next");
+    //     }
+    //     $yatzy->setScore([20, 20, 20, 20, 20]);
+    //     $data = $yatzy->play("next");
+    //     $this->assertEquals(50, $yatzy->getScore()[7]);
+    // }
 
     public function testYatzyShow()
     {

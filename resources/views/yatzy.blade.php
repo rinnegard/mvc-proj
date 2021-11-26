@@ -241,7 +241,7 @@ $name = Session::get('name');
             <?php endif; ?>
         </tr>
         <tr
-            <?php if ($turn == 16) : ?>
+            <?php if ($turn == 15) : ?>
                 class="current-turn"
             <?php endif; ?>
         >
