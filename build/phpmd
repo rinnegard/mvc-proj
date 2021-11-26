@@ -4,5 +4,4 @@ C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:30	The method pla
 C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:30	The method play() has an NPath complexity of 3888. The configured NPath complexity threshold is 200.
 C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:30	The method play() has 111 lines of code. Current threshold is set to 100. Avoid really long methods.
 C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:125	The method play uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
-C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:281	Avoid unused local variables such as '$key'.
-C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:294	Avoid unused local variables such as '$key'.
+C:\Users\victo\dbwebb-kurser\mvc\me\proj\app\Classes\Yatzy.php:292	Avoid unused local variables such as '$key'.

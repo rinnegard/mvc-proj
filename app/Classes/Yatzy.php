@@ -277,7 +277,6 @@ class Yatzy
         $diceSum = 0;
         $arr = array_count_values($this->savedDice);
         arsort($arr);
-        $key = arraY_key_first($arr);
         $value = array_shift($arr);
         if ($value >= 5) {
             $diceSum = 50;
