@@ -19,9 +19,11 @@ class YatzyTest extends TestCase
 
     public function testYatzyPlayRoll()
     {
+        $_POST = [];
+        $_POST["roll"] = "roll";
         $yatzy = new Yatzy();
         for ($i = 0; $i < 3; $i++) {
-            $data = $yatzy->play("roll");
+            $data = $yatzy->play();
         }
         $this->assertGreaterThan(0, $yatzy->playerDiceHand->getLastSum());
         $this->assertArrayHasKey("roundEnd", $data);
@@ -29,10 +31,14 @@ class YatzyTest extends TestCase
 
     public function testYatzyPlaySave()
     {
+        $_POST = [];
+        $_POST["roll"] = "roll";
         $yatzy = new Yatzy();
         for ($i = 0; $i < 3; $i++) {
-            $data = $yatzy->play("roll");
+            $data = $yatzy->play();
         }
+        $_POST = [];
+        $_POST["save"] = "save";
         $data = $yatzy->play("save");
         $this->assertArrayHasKey("roundEnd", $data);
     }
@@ -79,11 +85,16 @@ class YatzyTest extends TestCase
     public function testYatzySaveDice()
     {
 
+        $_POST = [];
         $_POST[2] = 2;
         $yatzy = new Yatzy();
-        $yatzy->play("roll");
+        $_POST["roll"] = "roll";
+        $yatzy->play();
         $before = count($yatzy->playerDiceHand->getAllDice());
-        $data = $yatzy->play("save");
+        $_POST = [];
+        $_POST["save"] = "save";
+        $_POST[2] = 2;
+        $data = $yatzy->play();
         $after = count($yatzy->playerDiceHand->getAllDice());
         $this->assertEquals(1, $before - $after);
     }

@@ -27,21 +27,23 @@ class Yatzy
         $this->playerDiceHand = new DiceHand($numberOfDie);
     }
 
-    public function play($inp = "doNothing"): array
+    public function play(): array
     {
+
+
         $data = [
             "header" => "Play Yatzy!!",
             "message" => "Good luck!",
         ];
 
-        if (isset($_POST["roll"]) || $inp === "roll") {
+        if (isset($_POST["roll"])) {
             $this->roll();
             if ($this->throws >= 3) {
                 $data["roundEnd"] = self::WINMESSAGE;
             }
         }
 
-        if (isset($_POST["save"]) || $inp === "save") {
+        if (isset($_POST["save"])) {
             if ($this->throws >= 3) {
                 $data["roundEnd"] = self::WINMESSAGE;
             }
@@ -55,23 +57,12 @@ class Yatzy
         }
 
 
-        if (isset($_POST["next"]) || $inp === "next") {
+        if (isset($_POST["next"])) {
             $this->throws = 0;
             $this->turn++;
             $this->checkOption($_POST["option"]);
-            if ($this->part1Counter == 6) {
-                $this->score[6] = 0;
-                for ($i = 0; $i < 6; $i++) {
-                    $this->score[6] += $this->score[$i];
-                }
-                $this->score[7] = ($this->score[6] >= 63 ? 50 : 0);
-                // if ($this->score[6] >= 63) {
-                //     $this->score[7] = 50;
-                // } else {
-                //     $this->score[7] = 0;
-                // }
-                $this->part1Score = $this->score[6];
-            }
+            $this->checkPart1();
+
             if ($this->turn == 15) {
                 $this->calcTotalSum();
                 $data["gameover"] = self::LOSEMESSAGE;
@@ -82,6 +73,23 @@ class Yatzy
         }
 
         return $data;
+    }
+
+    private function checkPart1(): void
+    {
+        if ($this->part1Counter == 6) {
+            $this->score[6] = 0;
+            for ($i = 0; $i < 6; $i++) {
+                $this->score[6] += $this->score[$i];
+            }
+            $this->score[7] = ($this->score[6] >= 63 ? 50 : 0);
+            // if ($this->score[6] >= 63) {
+            //     $this->score[7] = 50;
+            // } else {
+            //     $this->score[7] = 0;
+            // }
+            $this->part1Score = $this->score[6];
+        }
     }
 
     private function checkOption($option): void
